@@ -22,6 +22,9 @@ def imprimeixMenuPrincipal():
     print("5) Començar partida")
     print("6) Sortir")
 
+def inputMenuPrincipal():
+    return int(input("Escull una opció [0 - 5]: "))
+
 def menuPrincipal():
     jugadorsAsignats =  {
                         "Vermell":None,
