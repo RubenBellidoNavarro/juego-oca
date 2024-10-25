@@ -54,6 +54,18 @@ def assignaColor(color, jugadorsAsignats):
             return
         print(f'El nom escollit no és vàlid.')
 
+def jocPotIniciar(jugadorsAsignats):
+    #Cuenta los jugadores asignados:
+    quantitatJugadors = 0
+    for fitxa in jugadorsAsignats:
+        if jugadorsAsignats[fitxa] is not None:
+            quantitatJugadors += 1
+
+    #Si hay al menos 2 jugadores, retorna True:
+    if quantitatJugadors >= 2:
+        return True
+    return False
+
 def menuPrincipal():
     jugadorsAsignats =  {
                         "Vermell":None,
@@ -77,17 +89,11 @@ def menuPrincipal():
                 break
             continue
         elif opcioEscollida == 6:
-            sortirJoc()
+            sortirJoc(jugadorsAsignats)
 
 
 def main():
     menuPrincipal()
-    #Se presenta el menú de juego con las opciones disponibles
-    #El usuario elige opción por consola:
-        #Si no hay al menos 2 jugadores asignados, no puede comenzar la partida
-        #Si el jugador asigna un input no válido, sigue preguntando input hasta que este sea correcto
-
-    #Comienzo partida
 
 if __name__ == "__main__":
     pass
