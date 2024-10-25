@@ -36,7 +36,7 @@ def nomValid(nomJugador):
             nomValid = False
     return nomValid
 
-def assignaColor(color, jugadorsAsignats):
+def assignaColor(color, jugadorsAssignats):
     if color == "Vermell":
         colorFitxa = "Vermella"
     elif color == "Blau":
@@ -50,15 +50,15 @@ def assignaColor(color, jugadorsAsignats):
     while True:
         nomJugador = input(f"Escull un jugador per la firxa {colorFitxa}: ")
         if nomValid(nomJugador):
-            jugadorsAsignats[color] = nomJugador
+            jugadorsAssignats[color] = nomJugador
             return
         print(f'El nom escollit no és vàlid.')
 
-def jocPotIniciar(jugadorsAsignats):
+def jocPotIniciar(jugadorsAssignats):
     #Cuenta los jugadores asignados:
     quantitatJugadors = 0
-    for fitxa in jugadorsAsignats:
-        if jugadorsAsignats[fitxa] is not None:
+    for fitxa in jugadorsAssignats:
+        if jugadorsAssignats[fitxa] is not None:
             quantitatJugadors += 1
 
     #Si hay al menos 2 jugadores, retorna True:
@@ -67,29 +67,29 @@ def jocPotIniciar(jugadorsAsignats):
     return False
 
 def menuPrincipal():
-    jugadorsAsignats =  {
+    jugadorsAssignats =  {
                         "Vermell":None,
                         "Blau":None,
                         "Verd":None,
                         "Groc":None
                         }
     while True:
-        imprimeixMenuPrincipal(jugadorsAsignats)
+        imprimeixMenuPrincipal(jugadorsAssignats)
         opcioEscollida = inputMenuPrincipal()
         if opcioEscollida == 1:
-            assignaColor("Vermell", jugadorsAsignats)
+            assignaColor("Vermell", jugadorsAssignats)
         elif opcioEscollida == 2:
-            assignaColor("Blau", jugadorsAsignats)
+            assignaColor("Blau", jugadorsAssignats)
         elif opcioEscollida == 3:
-            assignaColor("Verd", jugadorsAsignats)
+            assignaColor("Verd", jugadorsAssignats)
         elif opcioEscollida == 4:
-            assignaColor("Groc", jugadorsAsignats)
+            assignaColor("Groc", jugadorsAssignats)
         elif opcioEscollida == 5:
-            if jocPotIniciar(jugadorsAsignats):
+            if jocPotIniciar(jugadorsAssignats):
                 break
             continue
         elif opcioEscollida == 6:
-            sortirJoc(jugadorsAsignats)
+            sortirJoc(jugadorsAssignats)
 
 
 def main():
