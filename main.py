@@ -1,4 +1,5 @@
 import os
+import string
 
 def clearScreen() -> None:
     '''Limpiamos la pantalla de la terminal.
@@ -24,6 +25,16 @@ def imprimeixMenuPrincipal():
 
 def inputMenuPrincipal():
     return int(input("Escull una opció [0 - 5]: "))
+
+def nomValid(nomJugador):
+    #El nombre del jugador sólo puede contener letras y espacios:
+    nomValid = True
+    for char in nomJugador:
+        noEsLletra = char.lower() not in string.ascii_lowercase
+        noEsEspai = char != " "
+        if noEsLletra and noEsEspai:
+            nomValid = False
+    return nomValid
 
 def assignaColor(color, jugadorsAsignats):
     if color == "Vermell":
