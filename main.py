@@ -15,13 +15,36 @@ def clearScreen() -> None:
 
 def imprimeixMenuPrincipal(jugadorsAssignats):
     clearScreen()
+
     print("La Oca")
+    
     print("----------")
-    print("1) Assignar jugador Vermell".ljust(30))
+
+    jugador1 = '(no assignat)'
+    if jugadorAssignat("Vermell",jugadorsAssignats):
+        jugador1 = f'({jugadorsAssignats["Vermell"]})'
+    print("1) Assignar jugador Vermell".ljust(30) + jugador1)
+
+    jugador2 = '(no assignat)'
+    if jugadorAssignat("Blau",jugadorsAssignats):
+        jugador2 = f'({jugadorsAssignats["Blau"]})'
     print("2) Assignar jugador Blau".ljust(30))
+
+    jugador3 = '(no assignat)'
+    if jugadorAssignat("Verd",jugadorsAssignats):
+        jugador3 = f'({jugadorsAssignats["Verd"]})'
     print("3) Assignar jugador Verd".ljust(30))
-    print("4) Assignar jugador Groc".ljust(30))
-    print("5) Començar partida")
+
+    jugador4 = '(no assignat)'
+    if jugadorAssignat("Groc",jugadorsAssignats):
+        jugador4 = f'({jugadorsAssignats["Groc"]})'
+    print("4) Assignar jugador Groc".ljust(30) + jugador4)
+
+    potIniciar = ""
+    if not jocPotIniciar(jugadorsAssignats):
+        potIniciar = "(no disponible)"
+    print("5) Començar partida" + potIniciar.rjust(24))
+
     print("6) Sortir")
 
 def inputMenuPrincipal():
