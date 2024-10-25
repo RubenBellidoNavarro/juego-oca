@@ -13,11 +13,16 @@ def clearScreen() -> None:
     else:                   # Si estàs a Linux o macOS
         os.system('clear')
 
+def jugadorAssignat(color, jugadorsAssignats):
+    if jugadorAssignat[color] is None:
+        return False
+    return True
+
 def imprimeixMenuPrincipal(jugadorsAssignats):
     clearScreen()
 
     print("La Oca")
-    
+
     print("----------")
 
     jugador1 = '(no assignat)'
