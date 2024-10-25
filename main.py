@@ -15,17 +15,47 @@ def imprimeixMenuPrincipal():
     clearScreen()
     print("La Oca")
     print("----------")
-    print("1) Assignar jugador Vermell")
-    print("2) Assignar jugador Blau")
-    print("3) Assignar jugador Verd")
-    print("4) Assignar jugador Groc")
+    print("1) Assignar jugador Vermell".ljust(30))
+    print("2) Assignar jugador Blau".ljust(30))
+    print("3) Assignar jugador Verd".ljust(30))
+    print("4) Assignar jugador Groc".ljust(30))
     print("5) Començar partida")
     print("6) Sortir")
 
+def menuPrincipal():
+    jugadorsAsignats =  {
+                        "Vermell":None,
+                        "Blau":None,
+                        "Verd":None,
+                        "Groc":None
+                        }
+    while True:
+        imprimeixMenuPrincipal(jugadorsAsignats)
+        opcioEscollida = inputMenuPrincipal()
+        if opcioEscollida == 1:
+            assignaColor("Vermell", jugadorsAsignats)
+        elif opcioEscollida == 2:
+            assignaColor("Blau", jugadorsAsignats)
+        elif opcioEscollida == 3:
+            assignaColor("Verd", jugadorsAsignats)
+        elif opcioEscollida == 4:
+            assignaColor("Groc", jugadorsAsignats)
+        elif opcioEscollida == 5:
+            if jocPotIniciar(jugadorsAsignats):
+                break
+            continue
+        elif opcioEscollida == 6:
+            sortirJoc()
+
+
 def main():
+    menuPrincipal()
     #Se presenta el menú de juego con las opciones disponibles
     #El usuario elige opción por consola:
         #Si no hay al menos 2 jugadores asignados, no puede comenzar la partida
         #Si el jugador asigna un input no válido, sigue preguntando input hasta que este sea correcto
 
     #Comienzo partida
+
+if __name__ == "__main__":
+    pass
