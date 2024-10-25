@@ -25,6 +25,24 @@ def imprimeixMenuPrincipal():
 def inputMenuPrincipal():
     return int(input("Escull una opció [0 - 5]: "))
 
+def assignaColor(color, jugadorsAsignats):
+    if color == "Vermell":
+        colorFitxa = "Vermella"
+    elif color == "Blau":
+        colorFitxa = "Blava"
+    elif color == "Verd":
+        colorFitxa = "Verda"
+    elif color == "Groc":
+        colorFitxa = "Groga"
+
+    clearScreen()
+    while True:
+        nomJugador = input(f"Escull un jugador per la firxa {colorFitxa}: ")
+        if nomValid(nomJugador):
+            jugadorsAsignats[color] = nomJugador
+            return
+        print(f'El nom escollit no és vàlid.')
+
 def menuPrincipal():
     jugadorsAsignats =  {
                         "Vermell":None,
