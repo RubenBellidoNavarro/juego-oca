@@ -14,7 +14,7 @@ def clearScreen() -> None:
         os.system('clear')
 
 def jugadorAssignat(color, jugadorsAssignats):
-    if jugadorAssignat[color] is None:
+    if jugadorsAssignats[color] is None:
         return False
     return True
 
@@ -33,12 +33,12 @@ def imprimeixMenuPrincipal(jugadorsAssignats):
     jugador2 = '(no assignat)'
     if jugadorAssignat("Blau",jugadorsAssignats):
         jugador2 = f'({jugadorsAssignats["Blau"]})'
-    print("2) Assignar jugador Blau".ljust(30))
+    print("2) Assignar jugador Blau".ljust(30) + jugador2)
 
     jugador3 = '(no assignat)'
     if jugadorAssignat("Verd",jugadorsAssignats):
         jugador3 = f'({jugadorsAssignats["Verd"]})'
-    print("3) Assignar jugador Verd".ljust(30))
+    print("3) Assignar jugador Verd".ljust(30) + jugador3)
 
     jugador4 = '(no assignat)'
     if jugadorAssignat("Groc",jugadorsAssignats):
@@ -53,7 +53,27 @@ def imprimeixMenuPrincipal(jugadorsAssignats):
     print("6) Sortir")
 
 def inputMenuPrincipal():
-    return int(input("Escull una opció [1 - 6]: "))
+    while True:
+        inputUsuari = input("Escull una opció [1 - 6]: ")
+
+        if inputUsuari.lower() == "assignar jugador vermell":
+            inputUsuari = "1"
+        elif inputUsuari.lower() == "assignar jugador blau":
+            inputUsuari = "2"
+        elif inputUsuari.lower() == "assignar jugador verd":
+            inputUsuari = "3"
+        elif inputUsuari.lower() == "assignar jugador groc":
+            inputUsuari = "4"
+        elif inputUsuari.lower() == "començar partida":
+            inputUsuari = "5"
+        elif inputUsuari.lower() == "sortir":
+            inputUsuari = "6"
+
+        if inputUsuari.isdigit():
+            inputUsuari = int(inputUsuari)
+            if inputUsuari in range (1,7):
+                return inputUsuari
+            continue
 
 def nomValid(nomJugador):
     #El nombre del jugador sólo puede contener letras y espacios:
