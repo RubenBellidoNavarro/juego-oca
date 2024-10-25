@@ -13,7 +13,7 @@ def clearScreen() -> None:
     else:                   # Si estàs a Linux o macOS
         os.system('clear')
 
-def imprimeixMenuPrincipal():
+def imprimeixMenuPrincipal(jugadorsAssignats):
     clearScreen()
     print("La Oca")
     print("----------")
@@ -25,7 +25,7 @@ def imprimeixMenuPrincipal():
     print("6) Sortir")
 
 def inputMenuPrincipal():
-    return int(input("Escull una opció [0 - 5]: "))
+    return int(input("Escull una opció [1 - 6]: "))
 
 def nomValid(nomJugador):
     #El nombre del jugador sólo puede contener letras y espacios:
@@ -49,7 +49,7 @@ def assignaColor(color, jugadorsAssignats):
 
     clearScreen()
     while True:
-        nomJugador = input(f"Escull un jugador per la firxa {colorFitxa}: ")
+        nomJugador = input(f"Escull un jugador per la fitxa {colorFitxa}: ")
         if nomValid(nomJugador):
             jugadorsAssignats[color] = nomJugador
             return
@@ -93,11 +93,11 @@ def menuPrincipal():
                 break
             continue
         elif opcioEscollida == 6:
-            sortirJoc(jugadorsAssignats)
+            sortirJoc()
 
 
 def main():
     menuPrincipal()
 
 if __name__ == "__main__":
-    pass
+    main()
