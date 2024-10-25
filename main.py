@@ -1,5 +1,6 @@
 import os
 import string
+import sys
 
 def clearScreen() -> None:
     '''Limpiamos la pantalla de la terminal.
@@ -65,6 +66,9 @@ def jocPotIniciar(jugadorsAssignats):
     if quantitatJugadors >= 2:
         return True
     return False
+
+def sortirJoc():
+    sys.exit()
 
 def menuPrincipal():
     jugadorsAssignats =  {
