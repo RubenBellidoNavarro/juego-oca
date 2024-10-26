@@ -53,27 +53,25 @@ def imprimeixMenuPrincipal(jugadorsAssignats):
     print("6) Sortir")
 
 def inputMenuPrincipal():
-    while True:
-        inputUsuari = input("Escull una opció [1 - 6]: ")
+    inputUsuari = input("Escull una opció [1 - 6]: ")
 
-        if inputUsuari.lower() == "assignar jugador vermell":
-            inputUsuari = "1"
-        elif inputUsuari.lower() == "assignar jugador blau":
-            inputUsuari = "2"
-        elif inputUsuari.lower() == "assignar jugador verd":
-            inputUsuari = "3"
-        elif inputUsuari.lower() == "assignar jugador groc":
-            inputUsuari = "4"
-        elif inputUsuari.lower() == "començar partida":
-            inputUsuari = "5"
-        elif inputUsuari.lower() == "sortir":
-            inputUsuari = "6"
+    if inputUsuari.lower() == "assignar jugador vermell":
+        inputUsuari = "1"
+    elif inputUsuari.lower() == "assignar jugador blau":
+        inputUsuari = "2"
+    elif inputUsuari.lower() == "assignar jugador verd":
+        inputUsuari = "3"
+    elif inputUsuari.lower() == "assignar jugador groc":
+        inputUsuari = "4"
+    elif inputUsuari.lower() == "començar partida":
+        inputUsuari = "5"
+    elif inputUsuari.lower() == "sortir":
+        inputUsuari = "6"
 
-        if inputUsuari.isdigit():
-            inputUsuari = int(inputUsuari)
-            if inputUsuari in range (1,7):
-                return inputUsuari
-            continue
+    if inputUsuari.isdigit():
+        inputUsuari = int(inputUsuari)
+        if inputUsuari in range (1,7):
+            return inputUsuari
 
 def nomValid(nomJugador):
     #El nombre del jugador sólo puede contener letras y espacios:
@@ -139,7 +137,6 @@ def menuPrincipal():
         elif opcioEscollida == 5:
             if jocPotIniciar(jugadorsAssignats):
                 break
-            continue
         elif opcioEscollida == 6:
             sortirJoc()
 
