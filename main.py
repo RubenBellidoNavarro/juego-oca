@@ -223,6 +223,9 @@ def joc(jugadorsAssignats)->None:
     
     Output: None'''
     jugadors = generaJugadors(jugadorsAssignats)
+    tauler = generaTauler()
+    asignaJugadorsTauler() #Pone a los jugadores en la casilla que toca (en este caso, en la 0)
+    imprimeixTauler()
 
 def main():
     jugadorsAssignats = menuPrincipal()
