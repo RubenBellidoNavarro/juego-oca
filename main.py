@@ -210,8 +210,8 @@ def generaJugadors(jugadorsAssignats:dict)->dict:
         nomJugador = jugadorsAssignats[colorFitxa]
         if nomJugador is not None:
             jugadorsPartida[colorFitxa] =   {
-                                            'nomJugador' = nomJugador,
-                                            'posicio' = 0
+                                            'nomJugador' : nomJugador,
+                                            'posicio' : 0
                                             }
     return jugadorsPartida
 
@@ -222,7 +222,7 @@ def joc(jugadorsAssignats)->None:
         -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.
     
     Output: None'''
-    jugadors = generaJugadors()
+    jugadors = generaJugadors(jugadorsAssignats)
 
 def main():
     jugadorsAssignats = menuPrincipal()
