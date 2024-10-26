@@ -161,10 +161,12 @@ def sortirJoc():
 
 def menuPrincipal():
     '''Gestiona el menú principal del juego y sus funcionalidades.
+    Retorna el diccionario 'jugadorsAssignats'.
     
     Input: None
     
-    Output: None'''
+    Output:
+        -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.'''
     jugadorsAssignats =  {
                         "Vermell":None,
                         "Blau":None,
@@ -184,7 +186,7 @@ def menuPrincipal():
             assignaColor("Groc", jugadorsAssignats)
         elif opcioEscollida == 5:
             if jocPotIniciar(jugadorsAssignats):
-                break
+                return jugadorsAssignats
         elif opcioEscollida == 6:
             sortirJoc()
 #endregion MenuPrincipal
@@ -213,17 +215,18 @@ def generaJugadors(jugadorsAssignats:dict)->dict:
                                             }
     return jugadorsPartida
 
-def joc()->None:
+def joc(jugadorsAssignats)->None:
     '''Gestiona la partida y sus funcionalidades.
     
-    Input: None
+    Input:
+        -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.
     
     Output: None'''
     jugadors = generaJugadors()
 
 def main():
-    menuPrincipal()
-    joc()
+    jugadorsAssignats = menuPrincipal()
+    joc(jugadorsAssignats)
 
 if __name__ == "__main__":
     main()
