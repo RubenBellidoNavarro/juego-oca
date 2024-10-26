@@ -13,6 +13,7 @@ def clearScreen() -> None:
     else:                   # Si estàs a Linux o macOS
         os.system('clear')
 
+#region MenuPrincipal
 def jugadorAssignat(color:str, jugadorsAssignats:dict) -> bool:
     '''Comprobamos si a una ficha se le ha asignado un jugador.
     
@@ -186,10 +187,19 @@ def menuPrincipal():
                 break
         elif opcioEscollida == 6:
             sortirJoc()
+#endregion MenuPrincipal
 
+def joc()->None:
+    '''Gestiona la partida y sus funcionalidades.
+    
+    Input: None
+    
+    Output: None'''
+    
 
 def main():
     menuPrincipal()
+    joc()
 
 if __name__ == "__main__":
     main()
