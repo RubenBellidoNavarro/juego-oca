@@ -189,22 +189,29 @@ def menuPrincipal():
             sortirJoc()
 #endregion MenuPrincipal
 
-def generaJugadors():
+def generaJugadors(jugadorsAssignats:dict)->dict:
+    '''Genera el diccionario de jugadores que participan en la partida.
+    
+    Input:
+        -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.
+        
+    Output:
+        -jugadorsPartida(dict)'''
     iconasJugadors =    {
                         'Groc':'G',
                         'Vermell':'V',
                         'Blau':'B',
                         'Verd':'D'
                         }
-    jugadors = {}
+    jugadorsPartida = {}
     for colorFitxa in jugadorsAssignats:
         nomJugador = jugadorsAssignats[colorFitxa]
         if nomJugador is not None:
-            jugadors[colorFitxa] =  {
-                                    'nomJugador' = nomJugador,
-                                    'posicio' = 0
-                                    }
-    return jugadors
+            jugadorsPartida[colorFitxa] =   {
+                                            'nomJugador' = nomJugador,
+                                            'posicio' = 0
+                                            }
+    return jugadorsPartida
 
 def joc()->None:
     '''Gestiona la partida y sus funcionalidades.
