@@ -13,12 +13,26 @@ def clearScreen() -> None:
     else:                   # Si estàs a Linux o macOS
         os.system('clear')
 
-def jugadorAssignat(color, jugadorsAssignats):
+def jugadorAssignat(color:str, jugadorsAssignats:dict) -> bool:
+    '''Comprobamos si a una ficha se le ha asignado un jugador.
+    
+    Input:
+        -color(str): color de la ficha a comprobar.
+        -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.
+        
+    Output: Bool'''
     if jugadorsAssignats[color] is None:
         return False
     return True
 
-def imprimeixMenuPrincipal(jugadorsAssignats):
+def imprimeixMenuPrincipal(jugadorsAssignats:dict) -> None:
+    '''Se encarga de imprimir el menú principal del juego, con las posibles variaciones
+    que este tenga dependiendo del estado del juego.
+    
+    Input:
+        -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.
+        
+    Output: None'''
     clearScreen()
 
     print("La Oca")
@@ -53,6 +67,11 @@ def imprimeixMenuPrincipal(jugadorsAssignats):
     print("6) Sortir")
 
 def inputMenuPrincipal():
+    '''Pide al usuario que escoja una opción en el menú principal.
+    
+    Input: None
+    
+    Output: None'''
     inputUsuari = input("Escull una opció [1 - 6]: ")
 
     if inputUsuari.lower() == "assignar jugador vermell":
@@ -74,7 +93,12 @@ def inputMenuPrincipal():
             return inputUsuari
 
 def nomValid(nomJugador):
-    #El nombre del jugador sólo puede contener letras y espacios:
+    '''Comprueba que el nombre introducido sea válido (sólo contiene letras y espacios).
+    
+    Input: 
+        -nomJugador(str): nombre del jugador a validar.
+        
+    Output: bool'''
     nomValid = True
     for char in nomJugador:
         noEsLletra = char.lower() not in string.ascii_lowercase
@@ -84,6 +108,13 @@ def nomValid(nomJugador):
     return nomValid
 
 def assignaColor(color, jugadorsAssignats):
+    '''Modifica el nombre asociado a una ficha de un color determinado.
+    
+    Input:
+        -color(str): color de la ficha cuyo nombre ha se modificarse.
+        -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.
+        
+    Output: None'''
     if color == "Vermell":
         colorFitxa = "Vermella"
     elif color == "Blau":
@@ -102,6 +133,12 @@ def assignaColor(color, jugadorsAssignats):
         print(f'El nom escollit no és vàlid.')
 
 def jocPotIniciar(jugadorsAssignats):
+    '''Comprueba si puede comenzar la partida (al menos 2 jugadores asignados).
+    
+    Input:
+        -jugadorsAssignats(dict): diccionario con estructura {'color':'nomJugador'}.
+        
+    Output: bool'''
     #Cuenta los jugadores asignados:
     quantitatJugadors = 0
     for fitxa in jugadorsAssignats:
@@ -114,9 +151,19 @@ def jocPotIniciar(jugadorsAssignats):
     return False
 
 def sortirJoc():
+    '''Sale del programa.
+    
+    Input:None
+    
+    Output:None'''
     sys.exit()
 
 def menuPrincipal():
+    '''Gestiona el menú principal del juego y sus funcionalidades.
+    
+    Input: None
+    
+    Output: None'''
     jugadorsAssignats =  {
                         "Vermell":None,
                         "Blau":None,
