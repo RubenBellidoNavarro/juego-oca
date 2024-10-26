@@ -189,13 +189,30 @@ def menuPrincipal():
             sortirJoc()
 #endregion MenuPrincipal
 
+def generaJugadors():
+    iconasJugadors =    {
+                        'Groc':'G',
+                        'Vermell':'V',
+                        'Blau':'B',
+                        'Verd':'D'
+                        }
+    jugadors = {}
+    for colorFitxa in jugadorsAssignats:
+        nomJugador = jugadorsAssignats[colorFitxa]
+        if nomJugador is not None:
+            jugadors[colorFitxa] =  {
+                                    'nomJugador' = nomJugador,
+                                    'posicio' = 0
+                                    }
+    return jugadors
+
 def joc()->None:
     '''Gestiona la partida y sus funcionalidades.
     
     Input: None
     
     Output: None'''
-    
+    jugadors = generaJugadors()
 
 def main():
     menuPrincipal()
